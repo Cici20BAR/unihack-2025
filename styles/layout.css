@@ -5,7 +5,7 @@ root {
     --accent-color: #bb86fc;
 }
 
-* {
+body {
     height: fit-content;
     display: flex;
     flex-direction: column;
