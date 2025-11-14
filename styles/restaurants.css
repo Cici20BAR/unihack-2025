@@ -1,0 +1,36 @@
+.restaurants-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.restaurants-welcome-text {
+    height: 60px;
+    width: 400px;
+    /*background: linear-gradient(135deg, #844fe4, #8e4ad7); !* soft purple gradient *!*/
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.05); /* soft shadow */
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: Arial, serif;
+    padding-left: 20px;
+    color: orangered;
+}
+
+.restaurants-dropdown-container {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.restaurants-dropdown-menu {
+    margin-left: 40px;
+    width: 300px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.05); /* soft shadow */
+    border: none;
+    background-color: transparent;
+}
+
+.restaurants-dropdown-menu:focus {
+    border: none;
+}
