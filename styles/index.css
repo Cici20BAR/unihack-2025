@@ -1,24 +1,31 @@
 html, body {
     height: 100%;
     margin: 0;
+
 }
 
 body {
+
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
 .main-page {
-    flex: 1;
+    flex: 1; /* **ACEASTĂ ESTE CHEIA** - Permite elementului să crească și să umple spațiul vertical rămas */
+    /* Adăugați spațiu de deasupra pentru a evita suprapunerea cu header-ul fix */
+    margin-top: 100px; /* Trebuie să fie egală cu înălțimea header-ului (100px) */
+    padding: 20px;
+
 }
 footer {
     background: linear-gradient(135deg, #5a0fa8, #6d19c2);
     color: white;
-    padding: 3rem 2rem 2rem;
+    padding: 1rem 2rem 1rem;
     text-align: left;
-    position: relative;
+
     transition: box-shadow 0.3s ease;
+
 }
 
 /* Glow interior subtil la hover */
