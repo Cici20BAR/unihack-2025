@@ -1,21 +1,36 @@
 html, body {
     height: 100%;
     margin: 0;
+
 }
 
 body {
+
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
 .main-page {
-    flex: 1;
-}
+    flex: 1; /* **ACEASTĂ ESTE CHEIA** - Permite elementului să crească și să umple spațiul vertical rămas */
+    /* Adăugați spațiu de deasupra pentru a evita suprapunerea cu header-ul fix */
+    margin-top: 100px; /* Trebuie să fie egală cu înălțimea header-ului (100px) */
+    padding: 20px;
 
+}
 footer {
     background: linear-gradient(135deg, #5a0fa8, #6d19c2);
     color: white;
+    padding: 1rem 2rem 1rem;
+    text-align: left;
+
+    transition: box-shadow 0.3s ease;
+
+}
+
+/* Glow interior subtil la hover */
+footer:hover {
+    box-shadow: 0 0 30px rgba(255,255,255,0.12) inset;
     padding: 2.5rem 1rem;
     display: flex;
     justify-content: center;
@@ -25,28 +40,65 @@ footer {
 
 .footer-content {
     display: flex;
+    align-items: flex-start;
     gap: 4rem;
+    justify-content: center;
 }
 
-/* coloana din stanga */
+/* TITLURI */
+.footer-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    position: relative;
+    text-transform: uppercase;
+}
+
+/* Linia animată sub titlu */
+.footer-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 40%;
+    height: 2px;
+    background: #d4b3ff;
+    transition: width 0.3s ease;
+}
+
+.footer-title:hover::after {
+    width: 80%;
+}
+
+/* SEPARATOR VERTICAL */
+.footer-separator {
+    width: 1px;
+    background: rgba(255,255,255,0.25);
+    height: 160px;
+}
+
+/* TEXT LISTA AUTORI */
 .footer-info p {
     margin: 3px 0;
 }
 
-/* coloana din dreapta */
+/* LINK-URI */
 .footer-links {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
 }
 
+/* link text + animație underline */
 .footer-links a {
     position: relative;
     color: white;
     text-decoration: none;
     padding: 3px 0;
+    font-size: 0.95rem;
 }
 
+/* underline animat */
 .footer-links a::after {
     content: "";
     position: absolute;
@@ -55,7 +107,7 @@ footer {
     width: 0%;
     height: 2px;
     background: #d4b3ff;
-    transition: width 0.3s;
+    transition: width 0.3s ease;
 }
 
 .footer-links a:hover::after {
@@ -80,4 +132,12 @@ header {
 
 .header-logo {
 
+}
+
+/* COPYRIGHT MIC JOS */
+.footer-copy {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
 }
