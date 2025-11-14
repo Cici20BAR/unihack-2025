@@ -1,5 +1,3 @@
-
-
 html, body {
     height: 100%;
     margin: 0;
@@ -106,6 +104,8 @@ footer:hover {
 
 .footer-links a:active {
     color: #e3c6ff;
+}
+
 .header {
     width: 100%;
     height: 100px;
