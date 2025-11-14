@@ -165,7 +165,29 @@ header {
     background: linear-gradient(135deg, #ffffff, #f3f3f7);
     transform: translateY(-5px);
 }
+.widgets a{
+    text-decoration: none;
+    color:#5a0fa8;
+}
+.notif-widget{
+    position: relative;
 
+}
+.notif-badge{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius:50px;
+    width: 30px;
+    height: 30px;
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+
+    background-color:#3A0882;
+    color: white;
+}
 .login-button {
     background: rgba(255, 255, 255, 0);
     border: none;
