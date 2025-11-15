@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 0.1fr 1fr;
-    border-radius: 22px;
+    border-radius: 26px;
     width: 85%;
     margin: 0.5vw;
     background: #1e88e5;
@@ -16,20 +16,20 @@
 #time{
     grid-area: 1 / 1 / 2 / 3;
     font-size: 1.5rem;
-    border-top-left-radius: 22px;
-    border-top-right-radius: 22px;
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
     background-color: rgba(0,0,0, 0.5)
 
 }
 #temperature-container{
     grid-area: 2 / 1 / 3 / 2;
     font-size: 2.5rem;
-    border-bottom-left-radius: 22px;
+    border-bottom-left-radius: 26px;
 }
 #more-info-container{
     grid-area: 2 / 2 / 3 / 3;
     font-size: 2.5rem;
-    border-bottom-right-radius: 30px;
+    border-bottom-right-radius: 26px;
 }
 
 #temperature, #weather{

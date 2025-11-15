@@ -10,9 +10,7 @@
 
 <body>
 <main>
-
     <div class="admin-navbar">
-
         <a href="alerts.html" class="admin-tab">
             <i class="fa-solid fa-bell"></i>
             Alerts
@@ -22,122 +20,79 @@
             <i class="fa-solid fa-bus"></i>
             Bus Routes
         </a>
-
-        <a href="restaurants.html" class="admin-tab active">
-            <i class="fa-solid fa-utensils"></i>
-            Restaurants
-        </a>
-
-        <a href="hotels.html" class="admin-tab">
-            <i class="fa-solid fa-hotel"></i>
-            Hotels
-        </a>
-
     </div>
 
+
     <section class="admin-page">
-        <div class="message-wrapper">
-            <h1 class="admin-page-message-title">Manage something </h1>
-            <p class="admin-page-message-subtitle">Create and manage city x and y</p>
+        <div class="message-button-wrapper">
+            <div class="message-wrapper">
+                <h1 class="admin-page-message-title">Modifica <span>alerte / rute de autobuz</span> </h1>
+                <p class="admin-page-message-subtitle">Create and manage city x and y</p>
+            </div>
+
+            <div class="add-btn-wrapper">
+                <button class="add-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    New
+                </button>
+            </div>
         </div>
 
 
-        <div class="add-btn-wrapper">
-            <button class="add-btn">
-                <i class="fa-solid fa-plus"></i>
-                New x
-            </button>
-        </div>
+        <section class="bus-routes">
+            <article class="bus-route-card">
+                <div class="bus-route-header">
+                    <h2 class="route-title"><b>Autobuz: <span>E1</span></b></h2>
 
-
-        <div class="restaurants-grid">
-            <div class="restaurants-card">
-
-                <div class="card-actions">
-                    <button class="edit-btn"><i class="fa-solid fa-pen"></i></button>
-                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
-                </div>
-
-                <div class="card-top-row">
-                    <span class="badge cuisine">Romanian</span>
-                    <span class="badge price">$$$$</span>
-                </div>
-
-                <div class="restaurants-info-container">
-
-                    <p class="restaurant-title">Restaurant Merlot</p>
-
-                    <p class="restaurant-desc">
-                        Fine dining with traditional Romanian cuisine and modern twist
-                    </p>
-
-                    <div class="restaurant-detail">
-                        <i class="fa-solid fa-location-dot"></i>
-                        Str. Emanuil Ungureanu 8, Timișoara 300011
+                    <div class="route-actions">
+                        <button class="alert-btn"><i class="fa-solid fa-pen"></i></button>
+                        <button class="alert-btn"><i class="fa-solid fa-trash"></i></button>
                     </div>
-
-                    <div class="restaurant-detail">
-                        <i class="fa-solid fa-phone"></i>
-                        0256 490 050
-                    </div>
-
-                    <div class="restaurant-detail">
-                        <i class="fa-solid fa-star"></i>
-                        4.7/5.0
-                    </div>
-
                 </div>
-            </div>
 
-        </div>
-        <div class="bus-route-card">
+                <p>Gara de Nord – Stadionul Dan Păltinișanu</p>
 
-            <div class="bus-route-header">
-                <span class="route-number">1</span>
+                <h3 class="bus-subtitle">Opriri: <span class="nr-stops"> 6 </span></h3>
+                <h3 class="bus-subtitle">Orar:</h3>
+                <ul>
+                    <li>De maine pana ma-ta</li>
+                </ul>
+            </article>
+        </section>
 
-                <div class="route-actions">
-                    <button class="edit"><i class="fa-solid fa-pen"></i></button>
-                    <button class="delete"><i class="fa-solid fa-trash"></i></button>
+
+        <section class="alerts">
+            <article class="alert-card">
+                <div class="alert-badges">
+                    <span class="alert-badge level-medium">medium</span>
+                    <span class="alert-badge category-transport">transportation</span>
                 </div>
-            </div>
 
-            <p class="route-title"><strong>Tramvai 1</strong></p>
-            <p>Gara de Nord – Stadionul Dan Păltinișanu</p>
 
-            <p><strong>Stops:</strong> 6</p>
-            <p>Weekday: Every 8 minutes, 5:00 – 23:30</p>
-            <p>Weekend: Every 12 minutes, 6:00 – 23:00</p>
-            <p><strong>Fare:</strong> 2.50 RON</p>
+                <h2 class="alert-title">Tramvai Line 1 Schedule Change</h2>
+                <p class="alert-description">
+                    Due to track maintenance on Bulevardul Liviu Rebreanu, Tramvai Line 1 will operate with modified schedule
+                    between 9:00 - 15:00 on weekdays until October 31st.
+                </p>
 
-        </div>
-        <div class="alert-card">
+                <div class="zone">
+                    <h3 class="titluZone">Zone afectate:</h3>
+                    <ul>
+                        <li>Centrul</li>
+                        <li>Gara de Nord</li>
+                    </ul>
+                </div>
 
-            <div class="alert-badges">
-                <span class="alert-badge level-medium">medium</span>
-                <span class="alert-badge category-transport">transportation</span>
-            </div>
+                <p class="alert-meta">Created: 9/25/2025</p>
 
-            <h3 class="alert-title">Tramvai Line 1 Schedule Change</h3>
-
-            <p class="alert-description">
-                Due to track maintenance on Bulevardul Liviu Rebreanu, Tramvai Line 1 will operate with modified schedule
-                between 9:00 - 15:00 on weekdays until October 31st.
-            </p>
-
-            <p class="alert-meta">
-                Created: 9/25/2025 • Expires: 11/1/2025 • Areas: Central, Gara de Nord
-            </p>
-
-            <div class="alert-actions">
-                <button class="alert-btn"><i class="fa-solid fa-pen"></i></button>
-                <button class="alert-btn"><i class="fa-solid fa-trash"></i></button>
-            </div>
-
-        </div>
-
+                <div class="alert-actions">
+                    <button class="alert-btn"><i class="fa-solid fa-pen"></i></button>
+                    <button class="alert-btn"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </article>
+        </section>
 
     </section>
-
 </main>
 </body>
 </html>

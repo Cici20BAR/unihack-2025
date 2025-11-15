@@ -1,21 +1,18 @@
 .admin-navbar{
 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        padding: 14px 24px;
-        border-radius: 40px;
-        max-width: 1200px;
-        margin: 40px auto;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(20px) saturate(180%);
-        -webkit-backdrop-filter: blur(20px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 14px 24px;
+    border-radius: 40px;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 
-        box-shadow: 0 20px 40px rgba(123, 30, 215, 0.12);
-        position: relative;
+    box-shadow: 0 20px 40px rgba(123, 30, 215, 0.12);
 }
 .admin-navbar a{
     text-decoration: none;
@@ -58,122 +55,7 @@
     color: whitesmoke;
 
 }
-.admin-page{
 
-}
-
-
-.restaurants-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 carduri pe linie */
-    gap: 25px;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-}
-
-/* ===== CARD MARE ===== */
-/* ===== CARD ===== */
-.restaurants-card {
-    position: relative;
-    background: #ffffff;
-    border: 2px solid rgba(150, 80, 255, 0.25);
-    border-radius: 18px;
-    padding: 25px 30px;
-    min-height: 220px;
-    margin-bottom: 26px;
-    box-shadow: 0 10px 25px rgba(150, 60, 255, 0.12);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* ===== BUTTONS (edit/delete) ===== */
-.card-actions {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    display: flex;
-    gap: 12px;
-}
-
-.card-actions button {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: none;
-    background: white;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: transform .2s ease, background .2s ease;
-}
-
-.card-actions button:hover {
-    transform: scale(1.12);
-    background: #f3e6ff;
-}
-
-.card-actions i {
-    color: #7b1ed7;
-    font-size: 15px;
-}
-
-/* ===== BADGES ===== */
-.card-top-row {
-    display: flex;
-    gap: 12px;
-    margin-bottom: -5px;
-}
-
-.badge {
-    padding: 5px 12px;
-    border-radius: 12px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.badge.cuisine {
-    background: #f2e8ff;
-    color: #6d19c2;
-}
-
-.badge.price {
-    background: #7b1ed7;
-    color: white;
-}
-
-/* ===== TEXT INFO ===== */
-.restaurant-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #3a0ca3;
-    margin: 0;
-}
-
-.restaurant-desc {
-    color: #7c3aed;
-    font-size: 0.95rem;
-    margin: 5px 0 10px;
-}
-
-/* ===== ICON ROWS ===== */
-.restaurant-detail {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #7b1ed7;
-    font-size: 0.95rem;
-}
-
-.restaurant-detail i {
-    color: #d14dff;
-    font-size: 16px;
-}
 .add-btn-wrapper {
     width: 100%;
     display: flex;
@@ -181,7 +63,6 @@
     margin-bottom: 25px;
 }
 
-/* ===== Add Button ===== */
 .add-btn {
     background: linear-gradient(135deg, #8b26ff, #6a00ff);
     color: white;
@@ -206,7 +87,6 @@
     font-size: 0.9rem;
 }
 
-/* Hover */
 .add-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 26px rgba(140, 60, 255, 0.32);
@@ -219,20 +99,13 @@
     padding: 28px 34px;
     margin-bottom: 26px;
 
-    display: flex;
-    flex-direction: column;
+    /*display: flex;*/
+    /*flex-direction: column;*/
     gap: 10px;
 
     box-shadow: 0 12px 28px rgba(125, 51, 235, 0.08);
 }
-.route-number {
-    background: #00b686;
-    padding: 8px 14px;
-    border-radius: 999px;
-    color: white;
-    font-weight: 700;
-    font-size: 14px;
-}
+
 .bus-route-header {
     display: flex;
     justify-content: space-between;
@@ -269,12 +142,23 @@
 }
 .bus-route-card p {
     margin: 2px 0;
-    font-size: 15px;
+    font-size: 1rem;
     color: #4a3d63;
     line-height: 1.45;
 }
+.zone li, .bus-route-card li {
+    font-size: 1rem;
+    color: #4a1a8a;
+    line-height: 1.45;
+}
+.titluZone, .bus-subtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #5a1abc;
+    margin-bottom: 10px;
+}
 .route-title {
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #5a1abc;
     margin-top: 10px;
@@ -294,8 +178,7 @@
     margin-bottom: 25px;
 }
 
-.message-wrapper h1,
-.admin-page-message-title {
+.message-wrapper h1, .admin-page-message-title {
     font-size: 24px;
     font-weight: 700;
     color: #1b0e33;
@@ -303,15 +186,12 @@
 }
 
 
-.message-wrapper p,
-.admin-page-message-subtitle {
+.message-wrapper p, .admin-page-message-subtitle {
     font-size: 15px;
     color: #7b1ed7;
-    margin: 0;
-    margin-bottom: 12px;
+    margin: 0 0 12px;
     line-height: 1.4;
 }
-/* CARD ALERT -------------------------------------------------- */
 
 .alert-card {
     position: relative;
@@ -330,8 +210,6 @@
     box-shadow: 0 18px 40px rgba(123, 30, 215, 0.10);
 }
 
-/* BADGES */
-
 .alert-badges {
     display: flex;
     gap: 10px;
@@ -346,7 +224,6 @@
     font-weight: 600;
 }
 
-/* level colors */
 .level-medium {
     background: #ffbf47;
     color: #6b3b00;
@@ -357,16 +234,15 @@
     color: #5d3fd3;
 }
 
-/* TITLE */
 
 .alert-title {
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: #2b0d54;
+    color: #5a1abc;
     margin-bottom: 10px;
 }
 
-/* DESCRIPTION */
+
 
 .alert-description {
     color: #7b1ed7;
@@ -374,15 +250,12 @@
     line-height: 1.45;
 }
 
-/* META INFO */
-
 .alert-meta {
     color: #9b5de5;
     font-size: 14px;
     margin-bottom: 10px;
+    text-align: right;
 }
-
-/* ACTION BUTTONS RIGHT SIDE */
 
 .alert-actions {
     position: absolute;
@@ -415,3 +288,7 @@
     color: #5c27c0;
 }
 
+.message-button-wrapper {
+    display: flex;
+    align-items: center;
+}
