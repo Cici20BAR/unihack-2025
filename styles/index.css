@@ -31,7 +31,7 @@
     border-radius:50px;
     width: 30px;
     height: 30px;
-    display: flex;
+   display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
@@ -55,57 +55,7 @@
     width: 40px;
 }
 /* CONTAINER CTA */
-.call-to-action {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-top: 25px;
-}
 
-/* INPUT */
-.call-to-action input {
-    width: 260px;
-    padding: 10px 4px;
-    border: none;
-    border-bottom: 2px solid #ccc;
-    background: transparent;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.3s ease;
-    text-align: center;
-}
-
-.call-to-action input:focus {
-    border-bottom-color: #6d19c2;
-}
-
-/* BUTON 3D MOV */
-.call-to-action button {
-    background: linear-gradient(180deg, #7b1ed7, #5e0fa7);
-    color: white;
-    border: none;
-    padding: 12px 28px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    box-shadow: 0 6px 0 #4b0c86;   /* baza 3D */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* HOVER — se ridică puțin */
-.call-to-action button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px 0 #4b0c86;
-}
-
-/* ACTIVE — apăsare realistă 3D */
-.call-to-action button:active {
-    transform: translateY(2px);
-    box-shadow: 0 3px 0 #4b0c86;
-}
 /* CONTAINER SLIDESHOW — responsive, centrat */
 .slides {
     width: 100%;
@@ -144,4 +94,78 @@
     height: 100%;
     object-fit: cover;   /* umple frumos containerul fără să fie pixelată */
     object-position: center;
+}
+/* === CALL TO ACTION SECTION === */
+.call-to-action {
+    text-align: center;
+    padding: 60px 40px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #4b0c86, #6d19c2, #b083ff);
+    background-size: 300% 300%;
+    animation: gradientMove 8s ease infinite;
+
+    color: white;
+    max-width: 650px;
+    margin: 50px auto;
+    box-shadow: 0 15px 40px rgba(109, 25, 194, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* animated background */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* fade + slide for text */
+.call-to-action h2,
+.call-to-action p {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.call-to-action p {
+    animation-delay: 0.2s;
+}
+
+/* text animation */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Click: 3D press */
+.cta-btn {
+    margin-top: 25px;
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+
+    color: #ffffff;
+    background: linear-gradient(135deg, #03dac6, #00b8a9);
+    box-shadow: 0 8px 20px rgba(3, 218, 198, 0.45);
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s;
+}
+
+/* Hover */
+.cta-btn:hover {
+    transform: translateY(-6px) scale(1.05);
+    background: linear-gradient(135deg, #00b8a9, #03dac6);
+    box-shadow: 0 15px 35px rgba(3, 218, 198, 0.6);
+}
+
+/* Active */
+.cta-btn:active {
+    transform: translateY(-2px) scale(0.97);
+    box-shadow: 0 4px 12px rgba(3, 218, 198, 0.5);
 }
