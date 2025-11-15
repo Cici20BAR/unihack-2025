@@ -23,7 +23,7 @@ let map            = null;
 // 1. Load API keys from package.json
 // ------------------------------------------------------------------
 async function pullAPiKey() {
-    const r = await fetch('package.json');
+    const r = await fetch('/static/js/package.json');
     if (!r.ok) throw new Error('package.json missing');
     const d = await r.json();
     geoapifyApiKey = d.geoapifyApiKey;
@@ -148,7 +148,7 @@ async function buildFallbackRoute(stops) {
 // ------------------------------------------------------------------
 // 6. Main: Get route → shape → fallback
 // ------------------------------------------------------------------
-async function getRouteGeometry(shortName = "E8") {
+async function getRouteGeometry(shortName) {
     const { route, trip } = await getRouteWithShape(shortName);
 
     // 1. Try GTFS shape (official geometry)
@@ -244,7 +244,7 @@ window.onload = async () => {
         await pullAPiKey();
         createMap();
 
-        const routeGeoJson = await getRouteGeometry("33");  // Change route here
+        const routeGeoJson = await getRouteGeometry("E3");  // Change route here
         drawRouteOnly(routeGeoJson);
 
     } catch (e) {
