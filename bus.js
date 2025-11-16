@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// bus.js – GTFS-based routing (shapes.txt) + Geoapify for map tiles
+// bus_map.js – GTFS-based routing (shapes.txt) + Geoapify for map tiles
 // ------------------------------------------------------------
 
 const minLon = 21.1350;
