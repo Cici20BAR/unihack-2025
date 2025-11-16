@@ -12,7 +12,7 @@
     <div class="bus-data">
         <div class="route-header">
             <div class="price-container">
-                <h2>Price: 4</h2>
+                <h2>Stop</h2>
             </div>
             <div class="legend-container">
                 <h2>Location</h2>
@@ -29,10 +29,18 @@
             <!-- Location & Time -->
             <div class="legend-info">
                 <div class="location-container">
-                    <ul id="location-list"></ul>
+                    <ul id="location-list">
+                        {% for stop in bus_data %}
+                            <li>{{ stop.from }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
                 <div class="time-container">
-                    <ul id="time-list"></ul>
+                    <ul id="time-list">
+                        {% for stop in bus_data %}
+                            <li>{{ stop.cumulative }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>
