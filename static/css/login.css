@@ -125,6 +125,7 @@ body{
 .forgot-password {
     margin-top: 15px;
     color: grey;
+    display: inline-block;
 }
 
 .forgot-password:hover {
