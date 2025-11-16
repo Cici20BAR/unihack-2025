@@ -20,6 +20,7 @@ select:focus {
     flex-direction: row;
     align-items: center;
     width: 100%;
+    padding: 20px 0;
 }
 
 .restaurants-dropdown-container {
@@ -70,7 +71,8 @@ select:focus {
 }
 
 .restaurants-info-container {
-    margin-left: 10px;
+    padding-left: 10px;
+    margin-top: 20px;
 }
 
 .restaurants-name {

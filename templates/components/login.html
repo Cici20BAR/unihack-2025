@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<main id="login">
+    <div class="login-conatiner">
+        <div class="left-panel">
+            <img src={% static "images/tva_crop_noshadow.png" %}>
+        </div>
+        <div class="right-panel">
+            <form class="login-form">
+
+                <label><b>Email</b></label>
+                <input type="email" placeholder="Enter Email" required>
+
+                <label><b>Password</b></label>
+                <div class="password-wrapper">
+                    <input type="password" placeholder="Enter Password" id="password" required>
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+
+            </form>
+            <button type="button" class="login-btn">Log in </button>
+            <div class="forgot-password">Forgot password?</div>
+            <button class="close-button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+</main>
+</body>
+</html>

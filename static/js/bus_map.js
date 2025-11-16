@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// index.js – GTFS + Geoapify routing + dynamic stops
+// bus_map.js – GTFS + Geoapify + REAL ARRIVAL TIMES
 // ------------------------------------------------------------
 
 const minLon = 21.1350;
@@ -20,7 +20,7 @@ let tranzyApiKey   = '';
 let map            = null;
 
 // ------------------------------------------------------------------
-// 1. Load API keys from package.json
+// 1. Load API keys
 // ------------------------------------------------------------------
 async function pullAPiKey() {
     const r = await fetch('/static/js/package.json');
@@ -142,94 +142,100 @@ async function buildFallbackRoute(stops) {
 }
 
 // ------------------------------------------------------------------
-// 6. Estimate travel times based on straight-line distance
+// 6. Format time from GTFS (HH:MM:SS or HH:MM) → HH:MM
 // ------------------------------------------------------------------
-function estimateTravelTimes(coords, avgSpeedKmh = 20) {
-    const times = [];
-    const toRad = deg => deg * Math.PI / 180;
-    for (let i = 0; i < coords.length - 1; i++) {
-        const [lon1, lat1] = coords[i];
-        const [lon2, lat2] = coords[i + 1];
-        const R = 6371; // km
-        const dLat = toRad(lat2 - lat1);
-        const dLon = toRad(lon2 - lon1);
-        const a = Math.sin(dLat / 2) ** 2 +
-                  Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        const distance = R * c; // km
-        times.push((distance / avgSpeedKmh) * 60); // minutes
-    }
-    times.push(0); // last stop
-    return times;
+function formatTime(gtfsTime) {
+    if (!gtfsTime) return '-';
+    return gtfsTime.split(':').slice(0, 2).join(':'); // e.g. "06:15:00" → "06:15"
 }
 
 // ------------------------------------------------------------------
-// 7. Render stops in the HTML
+// 7. Render stops with REAL ARRIVAL TIMES
 // ------------------------------------------------------------------
-function renderStops(stops, times = []) {
-    const stopsList = document.getElementById('stops-list');
+function renderStops(stops, arrivalTimes = []) {
+    const stopsList    = document.getElementById('stops-list');
     const locationList = document.getElementById('location-list');
-    const timeList = document.getElementById('time-list');
+    const timeList     = document.getElementById('time-list');
 
-    if (!stopsList || !locationList || !timeList) return;
+    if (!stopsList || !locationList || !timeList) {
+        console.warn("One or more list elements missing in DOM");
+        return;
+    }
 
     stopsList.innerHTML = '';
     locationList.innerHTML = '';
     timeList.innerHTML = '';
 
     stops.forEach((stop, idx) => {
+        // Stop Number
         const liStop = document.createElement('li');
         liStop.textContent = idx + 1;
         stopsList.appendChild(liStop);
 
+        // Stop Name
         const liName = document.createElement('li');
-        liName.textContent = stop.name;
+        liName.textContent = stop.name || `Stop ${idx + 1}`;
         locationList.appendChild(liName);
 
+        // REAL ARRIVAL TIME
         const liTime = document.createElement('li');
-        liTime.textContent = times[idx] !== undefined ? `${times[idx].toFixed(1)} min` : '-';
+        const timeStr = arrivalTimes[idx];
+        liTime.textContent = timeStr ? formatTime(timeStr) : '-';
         timeList.appendChild(liTime);
     });
 }
 
 // ------------------------------------------------------------------
-// 8. Main: Get route geometry and stops
+// 8. Get stops + REAL arrival times
 // ------------------------------------------------------------------
-async function getRouteGeometry(shortName = "E8") {
+async function getStopsWithTimes(tripId) {
+    const stopTimes = await getBusEndpoint(urlStopTimes);
+    const ordered = stopTimes
+        .filter(st => st.trip_id === tripId)
+        .sort((a, b) => a.stop_sequence - b.stop_sequence);
+
+    const stops = await getBusEndpoint(urlStops);
+    const stopList = [];
+    const arrivalTimes = [];
+
+    for (const st of ordered) {
+        const s = stops.find(x => x.stop_id === st.stop_id);
+        if (s) {
+            stopList.push({
+                lon: +s.stop_lon,
+                lat: +s.stop_lat,
+                name: s.stop_name
+            });
+            arrivalTimes.push(st.arrival_time); // e.g. "06:15:00"
+        }
+    }
+
+    return { stopList, arrivalTimes };
+}
+
+// ------------------------------------------------------------------
+// 9. Main: Get route geometry and stops with REAL TIMES
+// ------------------------------------------------------------------
+async function getRouteGeometry(shortName = "E3") {
     const { route, trip } = await getRouteWithShape(shortName);
 
     // 1. Try GTFS shape
     const shapeGeom = await getShapeGeometry(trip.shape_id);
-    if (shapeGeom) return shapeGeom;
+
+    // Always get stops + real times
+    const { stopList, arrivalTimes } = await getStopsWithTimes(trip.trip_id);
+    renderStops(stopList, arrivalTimes);
+
+    if (shapeGeom) {
+        return shapeGeom;
+    }
 
     console.warn(`No GTFS shape for shape_id=${trip.shape_id}. Using fallback stops.`);
-
-    // 2. Fallback: stop-based route
-    const stopTimes = await getBusEndpoint(urlStopTimes);
-    const ordered = stopTimes
-        .filter(st => st.trip_id === trip.trip_id)
-        .sort((a, b) => a.stop_sequence - b.stop_sequence);
-
-    const stops = await getBusEndpoint(urlStops);
-    const stopList = ordered.map(st => {
-        const s = stops.find(x => x.stop_id === st.stop_id);
-        return s ? { lon: +s.stop_lon, lat: +s.stop_lat, name: s.stop_name } : null;
-    }).filter(Boolean);
-
-    if (stopList.length === 0) throw new Error("No stops found");
-
-    // Estimate travel times
-    const coords = stopList.map(s => [s.lon, s.lat]);
-    const times = estimateTravelTimes(coords);
-
-    // Render stops in HTML
-    renderStops(stopList, times);
-
     return await buildFallbackRoute(stopList);
 }
 
 // ------------------------------------------------------------------
-// 9. Initialize MapLibre map
+// 10. Initialize MapLibre map
 // ------------------------------------------------------------------
 function createMap() {
     map = new maplibregl.Map({
@@ -245,7 +251,7 @@ function createMap() {
 
     map.on('load', () => {
         const el = document.querySelector('.maplibregl-control-container .maplibregl-attribution-container');
-        if (el) el.style.display = 'none';
+        if (el) el.style.display = ' route-line';
     });
 
     map.on('styleimagemissing', e => {
@@ -256,11 +262,11 @@ function createMap() {
 }
 
 // ------------------------------------------------------------------
-// 10. Draw route line
+// 11. Draw route line
 // ------------------------------------------------------------------
 function drawRouteOnly(geoJson) {
     if (!map?.isStyleLoaded()) {
-        map.once('load', () => drawRouteOnly(geoJson));
+        map.once('styledata', () => drawRouteOnly(geoJson));
         return;
     }
 
@@ -288,16 +294,16 @@ function drawRouteOnly(geoJson) {
 }
 
 // ------------------------------------------------------------------
-// 11. Main entry point
+// 12. Main entry point
 // ------------------------------------------------------------------
 window.onload = async () => {
     try {
         await pullAPiKey();
         createMap();
-        const routeGeoJson = await getRouteGeometry("E3");  // Change route here
+        const routeGeoJson = await getRouteGeometry("33");  // Change route here
         drawRouteOnly(routeGeoJson);
     } catch (e) {
-        console.error(e);
-        alert('Failed to load route – open console (F12).');
+        console.error("Failed to load route:", e);
+        alert('Failed to load route – check console (F12) for details.');
     }
 };
