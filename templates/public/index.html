@@ -3,6 +3,9 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Signature&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -17,6 +20,10 @@
             <div class="slide">
                 <img src=" {% static 'images/slide3.jpg' %}" alt="img3">
             </div>
+        </div>
+        <div class="homepage-text">
+            <h1>Timișoara Viewer App</h1>
+            <h2>Stai conectat cu orașul în orice moment al zilei</h2>
         </div>
         <div class="widgets">
 
@@ -40,7 +47,7 @@
                 <div class="widget-icon">
                     <i class="fa-solid fa-cloud-sun"></i>
                 </div>
-                <h3>Vremea</h3>
+                <h3>Meteo</h3>
                 <p>Verifică rapid în timp real condițiile meteo și prognoza pentru perioada următoare</p>
             </a>
 
@@ -71,10 +78,10 @@
         </div>
 
         <section class="call-to-action">
-            <h2>Stay Informed. Stay Safe.</h2>
-            <p>Subscribe to receive important city alerts, safety updates, traffic notifications, and emergency warnings directly in your inbox.</p>
+            <h2>Stai informat. Stai în siguranță.</h2>
+            <p>Abonează-te la sistemul de alerte ca să primești noutăți importante, precum anunțuri în oraș, despre siguranță, actualizări în trafic, și alerte de urgență direct in inbox-ul tău.</p>
 
-            <button class="cta-btn">Subscribe to our Alerts system</button>
+            <button class="cta-btn">Abonează-te la sistemul de alerte</button>
         </section>
 
     </main>

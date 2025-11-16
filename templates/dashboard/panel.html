@@ -11,90 +11,89 @@
 
 <body>
     <main>
-        <div class="admin-navbar">
-            <a href="alerts.html" class="admin-tab">
-                <i class="fa-solid fa-bell"></i>
-                Alerts
-            </a>
+    <div class="admin-navbar">
+        <a href="alerts.html" class="admin-tab">
+            <i class="fa-solid fa-bell"></i>
+            Alerte
+        </a>
 
-            <a href="bus-routes.html" class="admin-tab">
-                <i class="fa-solid fa-bus"></i>
-                Bus Routes
-            </a>
+        <a href="bus.html" class="admin-tab">
+            <i class="fa-solid fa-bus"></i>
+            Linii de autobuz
+        </a>
+    </div>
+
+
+    <section class="admin-page">
+        <div class="message-button-wrapper">
+            <div class="message-wrapper">
+                <h1 class="admin-page-message-title">Modifica <span>alerte / linii de autobuz</span> </h1>
+                <p class="admin-page-message-subtitle"></p>
+            </div>
+
+            <div class="add-btn-wrapper">
+                <button class="add-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Adaugă
+                </button>
+            </div>
         </div>
 
 
-        <section class="admin-page">
-            <div class="message-button-wrapper">
-                <div class="message-wrapper">
-                    <h1 class="admin-page-message-title">Modifica <span>alerte / rute de autobuz</span> </h1>
-                    <p class="admin-page-message-subtitle">Create and manage city x and y</p>
-                </div>
+        <section class="bus-routes">
+            <article class="bus-route-card">
+                <div class="bus-route-header">
+                    <h2 class="route-title"><b>Autobuz: <span>E1</span></b></h2>
 
-                <div class="add-btn-wrapper">
-                    <button class="add-btn">
-                        <i class="fa-solid fa-plus"></i>
-                        New
-                    </button>
-                </div>
-            </div>
-
-
-            <section class="bus-routes">
-                <article class="bus-route-card">
-                    <div class="bus-route-header">
-                        <h2 class="route-title"><b>Autobuz: <span>E1</span></b></h2>
-
-                        <div class="route-actions">
-                            <button class="alert-btn"><i class="fa-solid fa-pen"></i></button>
-                            <button class="alert-btn"><i class="fa-solid fa-trash"></i></button>
-                        </div>
-                    </div>
-
-                    <p>Gara de Nord – Stadionul Dan Păltinișanu</p>
-
-                    <h3 class="bus-subtitle">Opriri: <span class="nr-stops"> 6 </span></h3>
-                    <h3 class="bus-subtitle">Orar:</h3>
-                    <ul>
-                        <li>De maine pana ma-ta</li>
-                    </ul>
-                </article>
-            </section>
-
-
-            <section class="alerts">
-                <article class="alert-card">
-                    <div class="alert-badges">
-                        <span class="alert-badge level-medium">medium</span>
-                        <span class="alert-badge category-transport">transportation</span>
-                    </div>
-
-
-                    <h2 class="alert-title">Tramvai Line 1 Schedule Change</h2>
-                    <p class="alert-description">
-                        Due to track maintenance on Bulevardul Liviu Rebreanu, Tramvai Line 1 will operate with modified schedule
-                        between 9:00 - 15:00 on weekdays until October 31st.
-                    </p>
-
-                    <div class="zone">
-                        <h3 class="titluZone">Zone afectate:</h3>
-                        <ul>
-                            <li>Centrul</li>
-                            <li>Gara de Nord</li>
-                        </ul>
-                    </div>
-
-                    <p class="alert-meta">Created: 9/25/2025</p>
-
-                    <div class="alert-actions">
+                    <div class="route-actions">
                         <button class="alert-btn"><i class="fa-solid fa-pen"></i></button>
                         <button class="alert-btn"><i class="fa-solid fa-trash"></i></button>
                     </div>
-                </article>
-            </section>
+                </div>
 
+                <p>Gara de Nord – Stadionul Dan Păltinișanu</p>
+
+                <h3 class="bus-subtitle">Opriri: <span class="nr-stops"> 6 </span></h3>
+                <h3 class="bus-subtitle">Orar:</h3>
+                <ul>
+                    <li>De maine pana poimaine</li>
+                </ul>
+            </article>
         </section>
-    </main>
+
+
+        <section class="alerts">
+            <article class="alert-card">
+                <div class="alert-badges">
+                    <span class="alert-badge level-medium">medium</span>
+                    <span class="alert-badge category-transport">transportation</span>
+                </div>
+
+
+                <h2 class="alert-title">Schimbare orar Linia 1 Tramvai</h2>
+                <p class="alert-description">
+                    Din cauza lucrărilor de întreținere a liniei de tramvai pe Bulevardul Liviu Rebreanu, Linia 1 va circula după un program modificat între orele 9:00 și 15:00, în zilele lucrătoare, până la 31 octombrie.
+                </p>
+
+                <div class="zone">
+                    <h3 class="titluZone">Zone afectate:</h3>
+                    <ul>
+                        <li>Centrul</li>
+                        <li>Gara de Nord</li>
+                    </ul>
+                </div>
+
+                <p class="alert-meta">Created: 9/25/2025</p>
+
+                <div class="alert-actions">
+                    <button class="alert-btn"><i class="fa-solid fa-pen"></i></button>
+                    <button class="alert-btn"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </article>
+        </section>
+
+    </section>
+</main>
 
 <script src="{% static 'js/panel.js' %}"></script>
 </body>

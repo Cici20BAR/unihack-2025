@@ -83,3 +83,16 @@ footer ul li a{
     padding-top: 220px;
     color: #b7afaf;
 }
+
+.hover-link {
+    max-width: none;   /* or remove the whole rule */
+}
+
+.hover-link a {
+    display: inline-block;   /* makes the link only as wide as its text */
+}
+
+.hover-link a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
