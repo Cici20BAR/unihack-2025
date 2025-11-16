@@ -53,7 +53,7 @@
 .widget p{
     margin: 0;
     font-size: 0.95rem;
-    color: #9333ea;
+    color: #000000;
     line-height: 1.45;
     text-align: start;
 }
@@ -62,18 +62,17 @@
     color: #7b1ed7;
 }
 
-.notif-badge{
+.notif-badge {
     position: absolute;
-    top: -8px;
-    right: -8px;
-
+    top: -12px;
+    right: -16px;
     background: #5a0fa8;
     color: white;
-    font-size: 13px;
-    padding: 5px 9px;
+    font-size: 18px;
+    padding: 10px 18px;
     border-radius: 50%;
     font-weight: bold;
-    box-shadow: 0 3px 8px rgba(108, 39, 245, 0.4);
+    box-shadow: 0 5px 12px rgba(108, 39, 245, 0.4);
 }
 .login-button {
     background: rgba(255, 255, 255, 0);

@@ -20,6 +20,7 @@ select:focus {
     flex-direction: row;
     align-items: center;
     width: 100%;
+    padding: 20px 0;
 }
 
 .hotels-dropdown-container {
@@ -70,7 +71,8 @@ select:focus {
 }
 
 .hotels-info-container {
-    margin-left: 10px;
+    padding-left: 10px;
+    margin-top: 20px;
 }
 
 .hotels-name {
@@ -104,4 +106,10 @@ select:focus {
     display: flex;
     flex-direction: row;
     margin-bottom: 5px;
+}
+
+.hotels-render-container {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
 }
