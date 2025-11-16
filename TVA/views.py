@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .helpers import get_bus_exact_data
 def home(request):
     return render(request, 'public/index.html')
 
@@ -12,8 +13,12 @@ def hotels_page(request):
 def bus_page(request):
     return render(request, 'public/bus.html')
 
-def bus_map(request, bus_id):
-    context = {'bus_id': bus_id}
+async def bus_map(request, bus_id):
+    bus_data = await get_bus_exact_data(bus_id)  # ✅ await the coroutine
+    context = {
+        'bus_id': bus_id,
+        'bus_data': bus_data,
+    }
     return render(request, 'public/bus_map.html', context)
 
 def alerts_page(request):
@@ -26,5 +31,4 @@ def panel(request):
 
 def login(request):
     return render(request, 'components/login.html')
-
 
