@@ -32,3 +32,6 @@ def panel(request):
 def login(request):
     return render(request, 'components/login.html')
 
+def complaints(request):
+    return render(request, 'public/complaint.html')
+
