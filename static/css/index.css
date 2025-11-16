@@ -8,27 +8,23 @@
     width: 100%;
     margin: 0 auto;
     max-width:1200px;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 .widget{
     position: relative;
-    background: #faf5ff; /* mov foarte deschis */
+    background: linear-gradient(135deg, #cbc7d3, #e4e4e4, #d1ccd7);
     border-radius: 22px;
     padding: 32px;
     width: 100%;
     height: 260px;
-
-
+    border: 1px solid #a69a9a;
     box-shadow: 0 10px 25px rgba(109, 25, 194, 0.12);
     text-decoration: none;
-
     display: flex;
     flex-direction: column;
     gap: 20px;
-
     transition: transform .25s ease, box-shadow .25s ease;
-
 }
 .widget:hover {
     transform: translateY(-6px);
@@ -189,7 +185,7 @@
 
     color: #333333; /* Am schimbat culoarea textului la negru/gri închis pentru contrast pe fundalul galben */
     /* NOU: Gradient Auriu/Galben */
-    background: linear-gradient(135deg, #FFD700, #CC9900);
+    background: linear-gradient(135deg, #ead028, #ffb623);
     /* NOU: Umbră Galbenă/Auriu */
     box-shadow: 0 8px 20px rgba(255, 215, 0, 0.45);
 
@@ -201,7 +197,6 @@
     /* Mărire și ridicare vizuală */
     transform: translateY(-6px) scale(1.05);
     /* NOU: Inversarea gradientului la hover */
-    background: linear-gradient(135deg, #CC9900, #FFD700);
     /* NOU: Umbră Galbenă/Auriu mai intensă la hover */
     box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
 }
@@ -212,4 +207,16 @@
     transform: translateY(-2px) scale(0.97);
     /* NOU: Umbră restrânsă la active */
     box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+}
+
+.homepage-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homepage-text h1 {
+    padding-bottom: 20px;
+    font-style: italic;
+    font-family: Momo Signature;
 }

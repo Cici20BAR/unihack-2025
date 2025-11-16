@@ -19,8 +19,6 @@
     font-weight: bold;
     font-size: 16px;
     color: #5a2e9d;
-
-
 }
 .admin-navbar i{
     font-size: 28px;
@@ -148,7 +146,7 @@
 }
 .zone li, .bus-route-card li {
     font-size: 1rem;
-    color: #4a1a8a;
+    color: #000000;
     line-height: 1.45;
 }
 .titluZone, .bus-subtitle {
@@ -169,7 +167,7 @@
     font-weight: 600;
 }
 .admin-page p{
-    color: #4a1a8a;
+    color: #000000;
     font-size: 14px;
 }
 
@@ -181,14 +179,13 @@
 .message-wrapper h1, .admin-page-message-title {
     font-size: 24px;
     font-weight: 700;
-    color: #1b0e33;
+    color: #5a1abc;
     margin-bottom: 6px;
 }
 
-
 .message-wrapper p, .admin-page-message-subtitle {
     font-size: 15px;
-    color: #7b1ed7;
+    color: #000000;
     margin: 0 0 12px;
     line-height: 1.4;
 }
